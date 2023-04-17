@@ -1,4 +1,4 @@
-## Getting Started
+## Run the app
 
 First, run the development server:
 
