@@ -1,0 +1,44 @@
+.public-layout-content {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  overflow-y: hidden;
+
+  > .left-side {
+    flex: 1;
+    display: flex;
+    vertical-align: bottom;
+    background: var(--neutral-800);
+    justify-content: flex-end;
+    flex-direction: column;
+
+    > .img-logo {
+      transform: translate(-14rem, 14rem);
+    }
+  }
+
+  > .right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--white);
+
+    > .right-side-content {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius);
+
+  > .btn-content {
+    margin-top: 24px;
+    width: 100%;
+  }
+}
