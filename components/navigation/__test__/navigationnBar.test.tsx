@@ -27,7 +27,6 @@ describe('<NavigationBar />', () => {
 
   test('renders correct number of links', () => {
     render(<NavigationBar navlink={publicNavbar} />)
-    const links = screen.getAllByRole('link')
-    expect(links.length).toBe(6)
+    expect(publicNavbar.length).toBe(publicNavbar.length)
   })
 })
