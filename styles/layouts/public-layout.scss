@@ -71,6 +71,8 @@
 
     > .img-logo {
       transform: translate(-14rem, 14rem);
+      height: 900px;
+      width: 900px;
 
       @include lt-lg {
         height: 800px;

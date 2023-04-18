@@ -4,16 +4,16 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     appDir: true
-  },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/sign-in',
-        permanent: true
-      }
-    ]
   }
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/',
+  //       destination: '/',
+  //       permanent: true
+  //     }
+  //   ]
+  // }
 }
 
 module.exports = nextConfig
