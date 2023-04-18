@@ -25,26 +25,30 @@ export const SignIn: React.FC<SignInProps> = ({ type }) => {
 
   return (
     <form className='form-content' onSubmit={handleSubmit(onSubmit)}>
-      <InputFiled
-        label='Username'
-        type='text'
-        errorMessage={errors?.username?.message}
-        rest={{
-          ...register('username', {
-            required: 'Username is required'
-          })
-        }}
-      />
-      <InputFiled
-        label='Password'
-        type='password'
-        errorMessage={errors?.password?.message}
-        rest={{
-          ...register('password', {
-            required: 'Password is required'
-          })
-        }}
-      />
+      <div className='input-label-container'>
+        <InputFiled
+          label='Username'
+          type='text'
+          errorMessage={errors?.username?.message}
+          rest={{
+            ...register('username', {
+              required: 'Username is required'
+            })
+          }}
+        />
+      </div>
+      <div className='input-label-container'>
+        <InputFiled
+          label='Password'
+          type='password'
+          errorMessage={errors?.password?.message}
+          rest={{
+            ...register('password', {
+              required: 'Password is required'
+            })
+          }}
+        />
+      </div>
 
       <Link href='#' className='form-forgot-link'>
         Forgot your password?

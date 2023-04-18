@@ -1,9 +1,17 @@
-.input-style {
-  width: 100%;
+.input-container-style {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   background: var(--neutral-100);
+  width: 100%;
   border-radius: var(--border-radius);
   padding: 16px;
-  font-size: 1rem;
+
+  > .input-style {
+    width: 100%;
+    font-size: 1rem;
+    background: transparent;
+  }
 
   &:hover,
   &:focus {
@@ -12,7 +20,7 @@
   }
 }
 
-.label-style {
+.input .label-style {
   font-weight: 600;
   font-size: 0.9rem;
   color: var(--neutral-700);
