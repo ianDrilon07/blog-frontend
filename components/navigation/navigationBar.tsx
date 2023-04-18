@@ -12,7 +12,7 @@ const NavigationBar: React.FC<{ navlink?: publicNavbarTypes[] }> = ({
     <main className='navbar'>
       <nav className='nav-container'>
         <div className='nav-content'>
-          <Link href='/' className='nav-logo'>
+          <Link href='/' className='nav-logo' aria-label='navbar-logo'>
             <MG_LOGO color='#17181c' style='img-logo-navbar' />
           </Link>
 

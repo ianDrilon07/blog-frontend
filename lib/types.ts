@@ -4,3 +4,9 @@ export type publicNavbarTypes = {
   text: string
   path: string
 }
+
+export type trendingDataType = {
+  id: number
+  img: string
+  title: string
+}

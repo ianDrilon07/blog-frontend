@@ -1,4 +1,4 @@
-import { publicNavbarTypes } from 'lib/types'
+import { publicNavbarTypes, trendingDataType } from 'lib/types'
 
 const publicNavbar: publicNavbarTypes[] = [
   {
@@ -15,4 +15,27 @@ const publicNavbar: publicNavbarTypes[] = [
   }
 ]
 
-export { publicNavbar }
+const trendingData: trendingDataType[] = [
+  {
+    id: 1,
+    img: '/images/1.jpg',
+    title: 'Become a unicorn'
+  },
+  {
+    id: 2,
+    img: '/images/2.jpg',
+    title: 'Userflow Brainstorming'
+  },
+  {
+    id: 3,
+    img: '/images/3.jpg',
+    title: 'Client Meeting'
+  },
+  {
+    id: 4,
+    img: '/images/4.jpg',
+    title: 'Play with you friennds'
+  }
+]
+
+export { publicNavbar, trendingData }
