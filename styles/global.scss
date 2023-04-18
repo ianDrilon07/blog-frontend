@@ -1,0 +1,63 @@
+@import './layouts/public-layout.scss';
+@import './components/button.scss';
+@import './components/form.scss';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: #c2c2c2;
+}
+
+.reset-input {
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.reset-button {
+  border: 0;
+  outline: none;
+}
+
+:root {
+  --neutral-800: #17181c;
+  --neutral-700: #17181c;
+  --neutral-600: #1d1e23;
+  --neutral-500: #4a4b4f;
+  --neutral-400: #4a4b4f;
+  --neutral-300: #a5a5a7;
+  --neutral-200: #d2d2d3;
+  --neutral-100: #ecf1f3;
+
+  --primary-800: #3730a3;
+  --primary-700: #4338ca;
+  --primary-600: #4f46e5;
+  --primary-500: #6366f1;
+  --primary-400: #818cf8;
+  --primary-300: #a5b4fc;
+  --primary-200: #c7d2fe;
+  --primary-100: #e0e7ff;
+  --primary-50: #eef2ff;
+
+  --white: #ffffff;
+  --dirty-white: #ecf1f3;
+  --border-radius: 5px;
+
+  --container-2xl: 1536px;
+  --container-xl: 1280px;
+  --container-lg: 1024px;
+  --container-md: 768px;
+  --container-sm: 640px;
+}
+
+.nav-container {
+  max-width: var(--container-2xl);
+  margin: 0 auto;
+}
+
+.input-label-container {
+  margin-top: 1rem;
+  line-height: 2rem;
+}

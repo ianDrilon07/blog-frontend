@@ -1,0 +1,46 @@
+.input-style {
+  width: 100%;
+  background: var(--neutral-100);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  font-size: 1rem;
+
+  &:hover,
+  &:focus {
+    outline-style: solid;
+    outline-color: var(--primary-500);
+  }
+}
+
+.label-style {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--neutral-700);
+}
+
+.form-title {
+  color: var(--neutral-700);
+}
+
+.form-link {
+  color: var(--primary-500);
+  font-size: 0.9rem;
+}
+
+.form-forgot-link {
+  color: var(--primary-500);
+  margin-top: 18px;
+  font-size: 0.9rem;
+}
+
+.form-policy {
+  color: var(--neutral-500);
+  line-height: 1.4rem;
+}
+
+.error-style {
+  line-height: 1.5rem;
+  margin-top: 2px;
+  color: rgb(165, 44, 44);
+  font-size: 0.9rem;
+}
