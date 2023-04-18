@@ -4,7 +4,7 @@ import type { NextApplicationPage } from './_app'
 
 const UserLogin: NextApplicationPage = () => (
   <DefaultLayout title='Sign up'>
-    <SignUp type='USER' />
+    <SignUp />
   </DefaultLayout>
 )
 

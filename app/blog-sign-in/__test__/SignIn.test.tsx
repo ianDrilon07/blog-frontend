@@ -1,26 +1,20 @@
-import { render } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
+import { default as userEvent } from '@testing-library/user-event'
 import { SignIn } from '../SignIn'
 
 describe('<SignIn />', () => {
-  let signInElement: HTMLElement
+  const user = userEvent.setup()
 
   beforeEach(() => {
-    const { getByText } = render(<SignIn type='USER' />)
-    signInElement = getByText(/SignIn/)
+    render(<SignIn type='USER' />)
   })
 
-  it('it should render the component', () => {
-    expect(signInElement).toBeInTheDocument()
-  })
+  it('display required field error', async () => {
+    await user.click(screen.getByRole('button', { name: /login/i }))
 
-  it('it should accept ADMIN as a prop value', () => {
-    const { getAllByText } = render(<SignIn type='ADMIN' />)
-    const adminSignInElement = getAllByText(/SignIn/)
-
-    expect(adminSignInElement[0]).toBeInTheDocument()
-  })
-
-  it('it should accept USER as a prop value', () => {
-    expect(signInElement).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByText('Username is required')).toBeInTheDocument()
+      expect(screen.getByText('Password is required')).toBeInTheDocument()
+    })
   })
 })

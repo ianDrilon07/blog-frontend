@@ -27,6 +27,20 @@
   font-size: 0.9rem;
 }
 
+.form-forgot-link {
+  color: var(--primary-500);
+  margin-top: 18px;
+  font-size: 0.9rem;
+}
+
 .form-policy {
   color: var(--neutral-500);
+  line-height: 1.4rem;
+}
+
+.error-style {
+  line-height: 1.5rem;
+  margin-top: 2px;
+  color: rgb(165, 44, 44);
+  font-size: 0.9rem;
 }
