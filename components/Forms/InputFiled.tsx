@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, KeyboardEvent } from 'react'
 import { Search } from 'react-feather'
 
 interface inputFieldTypes {
@@ -9,10 +9,20 @@ interface inputFieldTypes {
   rest?: object
   style?: string
   isIcon?: boolean
+  onkeyPres?: (event: KeyboardEvent) => void
 }
 
 const InputFiled: React.FC<inputFieldTypes> = (props): JSX.Element => {
-  const { label, errorMessage, placeholder, type, rest, style, isIcon } = props
+  const {
+    label,
+    errorMessage,
+    placeholder,
+    type,
+    rest,
+    style,
+    isIcon,
+    onkeyPres
+  } = props
 
   return (
     <Fragment>
@@ -24,6 +34,7 @@ const InputFiled: React.FC<inputFieldTypes> = (props): JSX.Element => {
           className={` ${style} reset-input input-style`}
           aria-label='username'
           placeholder={placeholder}
+          onKeyDown={onkeyPres}
           {...rest}
         />
       </div>

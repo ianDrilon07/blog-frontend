@@ -1,16 +1,19 @@
 import React from 'react'
 import { NavigationBar } from 'components'
+import { recentPostsDataTypes } from 'lib/types'
 
 interface LayoutType {
   children: React.ReactNode
+  data: recentPostsDataTypes[]
 }
 
 export const DefaultLayout: React.FC<LayoutType> = ({
-  children
+  children,
+  data
 }): JSX.Element => {
   return (
     <main>
-      <NavigationBar />
+      <NavigationBar data={data} />
 
       <div className='home-container'>{children}</div>
     </main>

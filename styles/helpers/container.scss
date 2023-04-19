@@ -1,0 +1,28 @@
+.nav-container {
+  max-width: var(--container-2xl);
+  margin: 0 auto;
+}
+
+.home-container {
+  max-width: var(--container-xl);
+  margin: 42px auto;
+}
+
+.input-label-container {
+  margin-top: 0.5rem;
+  line-height: 2.5rem;
+}
+
+.divider {
+  margin: 50px 0;
+  border-bottom: 1px solid var(--neutral-300);
+}
+
+.recent-post-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.trending-container {
+  margin-top: 8.5rem;
+}

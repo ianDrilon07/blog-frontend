@@ -1,14 +1,24 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+
+//layout
 @import './layouts/public-layout.scss';
+
+//Components
 @import './components/navigation-bar.scss';
 @import './components/button.scss';
 @import './components/form.scss';
+@import './components/card.scss';
+@import './components/tags.scss';
+
+//Helpers
+@import './helpers/container.scss';
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Satoshi', sans-serif;
   width: 100%;
   padding: 0;
   margin: 0;
-  background: #c2c2c2;
+  background: #c2c2c250;
 }
 
 .reset-input {
@@ -51,19 +61,8 @@ body {
   --container-lg: 1024px;
   --container-md: 768px;
   --container-sm: 640px;
-}
 
-.nav-container {
-  max-width: var(--container-2xl);
-  margin: 0 auto;
-}
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-.home-container {
-  max-width: var(--container-xl);
-  margin: 42px auto;
-}
-
-.input-label-container {
-  margin-top: 0.5rem;
-  line-height: 2.5rem;
+  --box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.16);
 }
