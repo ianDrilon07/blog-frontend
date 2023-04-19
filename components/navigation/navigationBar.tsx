@@ -1,13 +1,27 @@
-import React from 'react'
-import { InputFiled } from 'components'
-import { MG_LOGO } from 'components'
-import { publicNavbarTypes } from 'lib/types'
+import React, { KeyboardEvent } from 'react'
+import { InputFiled, MG_LOGO } from 'components'
+import { publicNavbarTypes, recentPostsDataTypes } from 'lib/types'
 import { publicNavbar } from 'data'
 import Link from 'next/link'
+import { useForm } from 'react-hook-form'
 
-const NavigationBar: React.FC<{ navlink?: publicNavbarTypes[] }> = ({
-  navlink = publicNavbar
-}) => {
+//context
+import { usePosts } from 'context/SearchProvider'
+
+const NavigationBar: React.FC<{
+  navlink?: publicNavbarTypes[]
+  data: recentPostsDataTypes[]
+}> = ({ navlink = publicNavbar, data }) => {
+  const { watch, register } = useForm()
+  const { handleSearch } = usePosts()
+  const search = watch('search')
+
+  const searchPosts = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      handleSearch(search, data)
+    }
+  }
+
   return (
     <main className='navbar'>
       <nav className='nav-container'>
@@ -22,6 +36,8 @@ const NavigationBar: React.FC<{ navlink?: publicNavbarTypes[] }> = ({
               placeholder='Search Post'
               style='search-input'
               isIcon={true}
+              rest={{ ...register('search') }}
+              onkeyPres={searchPosts}
             />
           </div>
 

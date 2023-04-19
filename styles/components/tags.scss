@@ -1,0 +1,30 @@
+// .blog-tags {
+//   flex: 1;
+// }
+
+.tags-section {
+  flex: 1;
+
+  > .tags-title {
+    margin: 0;
+  }
+
+  > .blog-tags {
+    background: var(--white);
+    margin-top: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    padding: 14px 10px;
+
+    > .btn-tags {
+      cursor: pointer;
+      text-align: left;
+      background: var(--white);
+      font-size: 1rem;
+      padding: 10px;
+      width: 100%;
+      border-radius: var(--border-radius);
+    }
+  }
+}

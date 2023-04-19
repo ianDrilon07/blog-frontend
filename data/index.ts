@@ -1,4 +1,8 @@
-import { publicNavbarTypes, trendingDataType } from 'lib/types'
+import {
+  publicNavbarTypes,
+  trendingDataType,
+  recentPostsDataTypes
+} from 'lib/types'
 
 const publicNavbar: publicNavbarTypes[] = [
   {
@@ -38,4 +42,27 @@ const trendingData: trendingDataType[] = [
   }
 ]
 
-export { publicNavbar, trendingData }
+const recentPostsData: recentPostsDataTypes[] = [
+  {
+    id: 1,
+    votes: 100,
+    comments: 100,
+    author: 'Kirby Borromeo',
+    tags: ['@reactjs', '@rails'],
+    title: 'First UI/UX Session in MG Bootcamp 2023',
+    image: '/images/ruby-vs-rails-banner.jpg',
+    created_date: '2023-04-19T02:58:36.435Z'
+  },
+  {
+    id: 2,
+    votes: 100,
+    comments: 100,
+    author: 'Ian Drilon',
+    tags: ['@reactjs', '@ruby'],
+    title: 'hello First UI/UX Session in MG Bootcamp 2023',
+    image: '/images/react.jpg',
+    created_date: '2023-04-19T02:58:36.435Z'
+  }
+]
+
+export { publicNavbar, trendingData, recentPostsData }

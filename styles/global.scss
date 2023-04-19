@@ -1,9 +1,17 @@
 @import url('https://fonts.cdnfonts.com/css/satoshi');
+
+//layout
 @import './layouts/public-layout.scss';
+
+//Components
 @import './components/navigation-bar.scss';
 @import './components/button.scss';
 @import './components/form.scss';
-@import './components/Card.scss';
+@import './components/card.scss';
+@import './components/tags.scss';
+
+//Helpers
+@import './helpers/container.scss';
 
 body {
   font-family: 'Satoshi', sans-serif;
@@ -55,24 +63,6 @@ body {
   --container-sm: 640px;
 
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
 
-.nav-container {
-  max-width: var(--container-2xl);
-  margin: 0 auto;
-}
-
-.home-container {
-  max-width: var(--container-xl);
-  margin: 42px auto;
-}
-
-.input-label-container {
-  margin-top: 0.5rem;
-  line-height: 2.5rem;
-}
-
-.divider {
-  margin: 50px 0;
-  border-bottom: 1px solid var(--neutral-300);
+  --box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.16);
 }
