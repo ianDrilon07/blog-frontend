@@ -4,16 +4,16 @@ import { usePosts } from 'context/SearchProvider'
 import { tagsSamples } from 'utils'
 
 interface TagsType {
-  data: recentPostsDataTypes[]
+  posts: recentPostsDataTypes[]
 }
 
-const Tags: React.FC<TagsType> = ({ data }) => {
+const Tags: React.FC<TagsType> = ({ posts }) => {
   const [currentTags, setCurrentTags] = useState<string>('')
   const { state, handleTags } = usePosts()
 
   const filterByTags = (currentTags: string) => {
     currentTags && setCurrentTags(currentTags)
-    handleTags(currentTags, data)
+    handleTags(currentTags, posts)
   }
 
   return (
