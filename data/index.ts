@@ -48,7 +48,7 @@ const recentPostsData: recentPostsDataTypes[] = [
     votes: 100,
     comments: 100,
     author: 'Kirby Borromeo',
-    tags: ['@reactjs', '@rails'],
+    tags: ['@react', '@ruby'],
     title: 'First UI/UX Session in MG Bootcamp 2023',
     image: '/images/ruby-vs-rails-banner.jpg',
     created_date: '2023-04-19T02:58:36.435Z'
@@ -58,7 +58,7 @@ const recentPostsData: recentPostsDataTypes[] = [
     votes: 100,
     comments: 100,
     author: 'Ian Drilon',
-    tags: ['@reactjs', '@ruby'],
+    tags: ['@tech-stack', '@case-studies'],
     title: 'hello First UI/UX Session in MG Bootcamp 2023',
     image: '/images/react.jpg',
     created_date: '2023-04-19T02:58:36.435Z'
