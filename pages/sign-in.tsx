@@ -1,12 +1,11 @@
 import { SignIn } from 'app/blog-sign-in/SignIn'
-import { DefaultLayout } from 'layouts'
-import { useRouter } from 'next/router'
+import { LoginLayout } from 'layouts'
 import type { NextApplicationPage } from './_app'
 
 const UserLogin: NextApplicationPage = () => (
-  <DefaultLayout title='Login'>
+  <LoginLayout title='Login'>
     <SignIn type='USER' />
-  </DefaultLayout>
+  </LoginLayout>
 )
 
 export default UserLogin

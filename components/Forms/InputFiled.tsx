@@ -1,26 +1,34 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { Search } from 'react-feather'
 
 interface inputFieldTypes {
-  label: string
+  label?: string
   type: string
-  errorMessage: string | undefined
-  rest: object
+  errorMessage?: string | undefined
+  placeholder?: string
+  rest?: object
+  style?: string
+  isIcon?: boolean
 }
 
 const InputFiled: React.FC<inputFieldTypes> = (props): JSX.Element => {
-  const { label, errorMessage, type, rest } = props
+  const { label, errorMessage, placeholder, type, rest, style, isIcon } = props
 
   return (
-    <div className='input-label-container'>
+    <Fragment>
       <label className='label-style'>{label}</label>
-      <input
-        type={type}
-        className='reset-input input-style'
-        aria-label='username'
-        {...rest}
-      />
+      <div className='input-container-style'>
+        {isIcon && <Search color='#77787B' />}
+        <input
+          type={type}
+          className={` ${style} reset-input input-style`}
+          aria-label='username'
+          placeholder={placeholder}
+          {...rest}
+        />
+      </div>
       {errorMessage && <p className='error-style'>{errorMessage}</p>}
-    </div>
+    </Fragment>
   )
 }
 

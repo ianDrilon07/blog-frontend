@@ -24,49 +24,55 @@ export const SignUp = (): JSX.Element => {
 
   return (
     <form className='form-content' onSubmit={handleSubmit(onSubmit)}>
-      <InputFiled
-        label='Username'
-        type='text'
-        errorMessage={errors?.username?.message}
-        rest={{
-          ...register('username', {
-            required: 'Username is required'
-          })
-        }}
-      />
-      <InputFiled
-        label='Email'
-        type='email'
-        errorMessage={errors?.email?.message}
-        rest={{
-          ...register('email', {
-            required: 'email is required',
-            maxLength: {
-              message: 'Your name must be between 1 to 50 characters long',
-              value: 50
-            },
-            pattern: {
-              value: /^[\w-.+]+@([\w-]+\.)+[\w-]{2,4}$/,
-              message: 'Your email is incorrect. Please try again.'
-            }
-          })
-        }}
-      />
-      <InputFiled
-        label='Password'
-        type='password'
-        errorMessage={errors?.password?.message}
-        rest={{
-          ...register('password', {
-            required: 'Password is required',
-            maxLength: {
-              message: 'Your name must be between 1 to 50 characters long',
-              value: 50
-            },
-            validate: (value) => validateStrongPassword(value)
-          })
-        }}
-      />
+      <div className='input-label-container'>
+        <InputFiled
+          label='Username'
+          type='text'
+          errorMessage={errors?.username?.message}
+          rest={{
+            ...register('username', {
+              required: 'Username is required'
+            })
+          }}
+        />
+      </div>
+      <div className='input-label-container'>
+        <InputFiled
+          label='Email'
+          type='email'
+          errorMessage={errors?.email?.message}
+          rest={{
+            ...register('email', {
+              required: 'email is required',
+              maxLength: {
+                message: 'Your name must be between 1 to 50 characters long',
+                value: 50
+              },
+              pattern: {
+                value: /^[\w-.+]+@([\w-]+\.)+[\w-]{2,4}$/,
+                message: 'Your email is incorrect. Please try again.'
+              }
+            })
+          }}
+        />
+      </div>
+      <div className='input-label-container'>
+        <InputFiled
+          label='Password'
+          type='password'
+          errorMessage={errors?.password?.message}
+          rest={{
+            ...register('password', {
+              required: 'Password is required',
+              maxLength: {
+                message: 'Your name must be between 1 to 50 characters long',
+                value: 50
+              },
+              validate: (value) => validateStrongPassword(value)
+            })
+          }}
+        />
+      </div>
 
       <p className='form-policy'>
         By continuing, you are setting up a Mashup Garage blog account and agree
