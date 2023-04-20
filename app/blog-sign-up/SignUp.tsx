@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form'
 import { InputFiled } from 'components'
 import { useAccount } from 'lib'
 import Link from 'next/link'
+import { EventHandler } from 'react'
 
 interface signUpTypes {
   username: string
@@ -13,13 +14,15 @@ export const SignUp = (): JSX.Element => {
   const {
     handleSubmit,
     register,
-    formState: { errors }
+    formState: { errors },
+    reset
   } = useForm<signUpTypes>()
 
-  const { validateStrongPassword } = useAccount()
+  const { validateStrongPassword, signUp } = useAccount()
 
   const onSubmit = (data: signUpTypes) => {
-    console.log(data)
+    signUp(data.username, data.password, data.email)
+    reset()
   }
 
   return (

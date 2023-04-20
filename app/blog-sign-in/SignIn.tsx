@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { InputFiled } from 'components'
+import { useAccount } from 'lib'
 
 interface SignInProps {
   type: 'ADMIN' | 'USER'
@@ -19,8 +20,10 @@ export const SignIn: React.FC<SignInProps> = ({ type }) => {
     formState: { errors }
   } = useForm<SignInFormTypes>()
 
+  const { login } = useAccount()
+
   const onSubmit = async (data: SignInFormTypes) => {
-    console.log(data)
+    login(data.username, data.password)
   }
 
   return (

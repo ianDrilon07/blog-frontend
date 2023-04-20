@@ -5,24 +5,27 @@ import { recentPostsDataTypes } from 'lib/types'
 interface State {
   searchQuery: string
   posts: recentPostsDataTypes[]
-  filteredPosts?: recentPostsDataTypes[]
+  filteredTags?: recentPostsDataTypes[] | undefined
 }
 
 interface PostsContextType {
   state: State
   dispatch: React.Dispatch<Action>
   handleSearch: (query: string, posts: recentPostsDataTypes[]) => void
+  handleTags: (tags: string, posts: recentPostsDataTypes[]) => void
 }
 
 // Define the available actions
 type Action =
   | { type: 'SET_SEARCH_QUERY'; payload: string }
   | { type: 'SET_POSTS'; payload: recentPostsDataTypes[] }
+  | { type: 'SET_TAGS'; payload: recentPostsDataTypes[] }
 
 // Define the initial state
 const initialState: State = {
   searchQuery: '',
-  posts: []
+  posts: [],
+  filteredTags: []
 }
 
 // Define the reducer function
@@ -31,7 +34,9 @@ function reducer(state: State, action: Action): State {
     case 'SET_SEARCH_QUERY':
       return { ...state, searchQuery: action.payload }
     case 'SET_POSTS':
-      return { ...state, posts: action.payload, filteredPosts: [] }
+      return { ...state, posts: action.payload }
+    case 'SET_TAGS':
+      return { ...state, filteredTags: action.payload }
     default:
       throw new Error()
   }
@@ -63,8 +68,24 @@ export const PostsProvider: React.FC<{
     }
   }
 
+  const handleTags = (tags: string, posts: recentPostsDataTypes[]) => {
+    if (tags.trim() === '') {
+      dispatch({ type: 'SET_POSTS', payload: posts })
+      dispatch({ type: 'SET_SEARCH_QUERY', payload: tags })
+    } else {
+      const filteredPosts = state.posts.filter((post) =>
+        post.tags.includes(tags?.toLowerCase())
+      )
+
+      dispatch({ type: 'SET_TAGS', payload: filteredPosts })
+      dispatch({ type: 'SET_SEARCH_QUERY', payload: tags })
+    }
+  }
+
   return (
-    <PostsContext.Provider value={{ state, dispatch, handleSearch }}>
+    <PostsContext.Provider
+      value={{ state, dispatch, handleSearch, handleTags }}
+    >
       {children}
     </PostsContext.Provider>
   )

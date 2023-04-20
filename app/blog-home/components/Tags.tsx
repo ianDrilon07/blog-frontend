@@ -1,22 +1,32 @@
 import React, { useState } from 'react'
+import { recentPostsDataTypes } from 'lib/types'
+import { usePosts } from 'context/SearchProvider'
+import { tagsSamples } from 'utils'
 
 interface TagsType {
-  tags: Array<string>
+  posts: recentPostsDataTypes[]
 }
 
-const Tags: React.FC<TagsType> = ({ tags }) => {
-  const [currentIndex, setCurrentIndex] = useState<number | null>(null)
+const Tags: React.FC<TagsType> = ({ posts }) => {
+  const [currentTags, setCurrentTags] = useState<string>('')
+  const { handleTags } = usePosts()
+
+  const filterByTags = (currentTags: string) => {
+    currentTags && setCurrentTags(currentTags)
+    handleTags(currentTags, posts)
+  }
 
   return (
     <div className='blog-tags'>
-      {tags.map((el, index) => (
+      {tagsSamples.map((el) => (
         <button
+          key={el}
           type='button'
           className='reset-button btn-tags'
           style={{
-            background: `${currentIndex === index ? '#eef2ff' : '#fff'}`
+            background: `${currentTags === el ? '#eef2ff' : '#fff'}`
           }}
-          onClick={() => setCurrentIndex(index)}
+          onClick={() => filterByTags(el)}
         >
           {el}
         </button>
