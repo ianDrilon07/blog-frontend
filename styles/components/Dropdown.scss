@@ -1,0 +1,35 @@
+.menu-nav {
+  position: absolute;
+  list-style: none;
+  background: var(--white);
+  top: 2.5rem;
+  right: 0;
+  width: 100%;
+  z-index: 9;
+  font-size: 18px;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  transform: translateY(-10px);
+  transition: var(--transition);
+  opacity: 0;
+  padding: 8px 0;
+
+  > .menu-item {
+    display: flex;
+    gap: 0.5rem;
+    padding: 6px 18px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    &:hover {
+      background: var(--neutral-100);
+    }
+  }
+
+  &.show-menu {
+    width: 100%;
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}

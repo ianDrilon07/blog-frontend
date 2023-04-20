@@ -54,12 +54,14 @@
     }
   }
 }
+
 .navbar-admin-content {
   display: flex;
   align-items: center;
   gap: 0.6rem;
 
   > .navbar-avatar {
+    position: relative;
     cursor: pointer;
     display: flex;
     align-items: center;

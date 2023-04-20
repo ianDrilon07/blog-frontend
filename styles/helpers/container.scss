@@ -13,8 +13,17 @@
   line-height: 2.5rem;
 }
 
-.divider {
+.divider-xl {
   margin: 50px 0;
+  border-bottom: 1px solid var(--neutral-300);
+}
+
+.btn-xl {
+  font-size: 1rem;
+}
+
+.divider-lg {
+  margin: 20px 0;
   border-bottom: 1px solid var(--neutral-300);
 }
 
@@ -26,9 +35,15 @@
 
 .recent-post-container {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .trending-container {
   margin-top: 8.5rem;
+}
+
+.post-container {
+  margin: 10rem auto;
+  overflow: hidden;
+  max-width: var(--container-lg);
 }

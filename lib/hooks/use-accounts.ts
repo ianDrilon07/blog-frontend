@@ -2,12 +2,13 @@ import Cookies from 'js-cookie'
 import { UserType } from 'lib/types'
 import swal from 'sweetalert2'
 import { authService } from 'services'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 
 interface useAccountsType {
   validateStrongPassword: (password: string) => boolean | string
   signUp: (username: string, password: string, email: string) => void
   login: (username: string, password: string) => UserType | {}
+  logout: () => void
 }
 
 export const useAccount = (): useAccountsType => {
@@ -74,6 +75,11 @@ export const useAccount = (): useAccountsType => {
     // return newUser as UserType
   }
 
+  const logout = (): void => {
+    Cookies.remove('currentUser')
+    router.push('/sign-in')
+  }
+
   const validateStrongPassword = (password: string): boolean | string => {
     const formatted = password.trim() // removes whitespace
 
@@ -88,6 +94,7 @@ export const useAccount = (): useAccountsType => {
   return {
     validateStrongPassword,
     signUp,
-    login
+    login,
+    logout
   }
 }
