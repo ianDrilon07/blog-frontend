@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Tags, Card } from './components'
 import { trendingData } from 'data'
+import { userCurrentUser } from 'lib'
 import { recentPostsDataTypes } from 'lib/types'
 
 //context
@@ -9,6 +10,7 @@ export const Home: React.FC<{ data: recentPostsDataTypes[] }> = ({
   data
 }): JSX.Element => {
   const { state, dispatch } = usePosts()
+  const user = userCurrentUser()
 
   useEffect(() => {
     dispatch({ type: 'SET_POSTS', payload: data })
@@ -35,7 +37,7 @@ export const Home: React.FC<{ data: recentPostsDataTypes[] }> = ({
         ))}
       </div>
 
-      <div className='divider' />
+      <div className='divider-xl' />
 
       <div className='recent-post-container'>
         <section className='card-section'>
@@ -46,6 +48,14 @@ export const Home: React.FC<{ data: recentPostsDataTypes[] }> = ({
         </section>
 
         <section className='tags-section'>
+          {user && (
+            <div>
+              <button className='reset-button button-primary btn-xl'>
+                Create Post
+              </button>
+            </div>
+          )}
+          <div className='divider-lg' />
           <h2 className='tags-title'>Popular Tags</h2>
           <Tags posts={data} />
         </section>

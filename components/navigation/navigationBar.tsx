@@ -1,20 +1,21 @@
-import React, { KeyboardEvent } from 'react'
+import React, { KeyboardEvent, useState } from 'react'
+import { User, LogOut } from 'react-feather'
 import { publicNavbar } from 'data'
 import { useForm } from 'react-hook-form'
 import Link from 'next/link'
 
 //components
-import { InputFiled, MG_LOGO } from 'components'
+import { InputFiled, MG_LOGO, Dropdown } from 'components'
 
 //lib
-import { userCurrentUser } from 'lib'
+import { userCurrentUser, useAccount } from 'lib'
 import { publicNavbarTypes, recentPostsDataTypes } from 'lib/types'
 
 //avatar
 import Avatar from 'boring-avatars'
 
 //icons
-import { Plus, ChevronDown } from 'react-feather'
+import { Plus, ChevronDown, ChevronUp } from 'react-feather'
 
 //context
 import { usePosts } from 'context/SearchProvider'
@@ -23,17 +24,38 @@ const NavigationBar: React.FC<{
   navlink?: publicNavbarTypes[] | undefined
   data: recentPostsDataTypes[] | undefined
 }> = ({ navlink = publicNavbar, data }) => {
+  const [toggle, isToggle] = useState<boolean>(false)
   const user = userCurrentUser()
+  const { logout } = useAccount()
 
   const { watch, register } = useForm()
   const { handleSearch } = usePosts()
   const search = watch('search')
+
+  const toggleDropdown = (): void => {
+    isToggle((prevState) => !prevState)
+  }
 
   const searchPosts = (event: KeyboardEvent) => {
     if (event.key === 'Enter') {
       data && handleSearch(search, data)
     }
   }
+
+  const menuItems = [
+    {
+      icon: <User size='20' />,
+      title: 'My Profile',
+      action: () => {
+        alert('working')
+      }
+    },
+    {
+      icon: <LogOut size='20' />,
+      title: 'Logout',
+      action: () => logout()
+    }
+  ]
 
   return (
     <main className='navbar'>
@@ -56,19 +78,24 @@ const NavigationBar: React.FC<{
 
           {user ? (
             <header className='navbar-admin-content'>
-              <Link href='#' className='reset-button btn-add-blog'>
-                <Plus />
+              <Link href='/createPost' className='reset-button btn-add-blog'>
+                <Plus size='20' />
               </Link>
               <div className='vertical-divider' />
-              <div className='navbar-avatar'>
+              <div className='navbar-avatar' onClick={() => toggleDropdown()}>
                 <Avatar
-                  size={40}
+                  size={35}
                   name={user.username}
                   variant='beam'
                   colors={['#EF746F']}
                 />
-                <h3 className='navbar-name'>{user.username}</h3>
-                <ChevronDown size='24' className='svg' />
+                <h4 className='navbar-name'>{user.username}</h4>
+                {toggle ? (
+                  <ChevronUp size='24' className='svg' />
+                ) : (
+                  <ChevronDown size='24' className='svg' />
+                )}
+                <Dropdown isOpen={toggle} menuItems={menuItems} />
               </div>
             </header>
           ) : (
