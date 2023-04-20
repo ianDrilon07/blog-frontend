@@ -9,7 +9,7 @@ interface TagsType {
 
 const Tags: React.FC<TagsType> = ({ posts }) => {
   const [currentTags, setCurrentTags] = useState<string>('')
-  const { state, handleTags } = usePosts()
+  const { handleTags } = usePosts()
 
   const filterByTags = (currentTags: string) => {
     currentTags && setCurrentTags(currentTags)

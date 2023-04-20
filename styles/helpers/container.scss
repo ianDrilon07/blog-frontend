@@ -18,6 +18,12 @@
   border-bottom: 1px solid var(--neutral-300);
 }
 
+.vertical-divider {
+  height: 50px;
+  margin: 0 20px;
+  border-left: 1px solid var(--neutral-200);
+}
+
 .recent-post-container {
   display: flex;
   gap: 1rem;

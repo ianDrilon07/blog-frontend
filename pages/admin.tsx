@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
 import { DefaultLayout } from 'layouts'
 import { Home } from 'app/blog-home/home'
-import { GetServerSideProps } from 'next'
 import { recentPostsData } from 'data'
 import { recentPostsDataTypes } from 'lib/types'
 import { usePosts } from 'context/SearchProvider'
+import { GetServerSideProps } from 'next'
 
 interface HomeDataTypes {
   data: recentPostsDataTypes[]
 }
 
-const App: React.FC<HomeDataTypes> = (props) => {
+const index: React.FC<HomeDataTypes> = (props) => {
   const { state, dispatch } = usePosts()
 
   useEffect(() => {
@@ -34,4 +34,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 }
 
-export default App
+export default index

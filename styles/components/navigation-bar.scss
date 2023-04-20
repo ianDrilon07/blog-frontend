@@ -16,6 +16,19 @@
   align-items: center;
   justify-content: space-between;
 
+  .btn-add-blog {
+    padding: 10px 12px;
+    background-color: var(--neutral-100);
+    color: var(--neutral-800);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+
+    &:hover {
+      background-color: var(--primary-500);
+      color: var(--white);
+    }
+  }
+
   > .nav.logo {
     flex: 1;
   }
@@ -39,6 +52,18 @@
       font-weight: normal;
       font-size: 0.9rem;
     }
+  }
+}
+.navbar-admin-content {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  > .navbar-avatar {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
   }
 }
 
