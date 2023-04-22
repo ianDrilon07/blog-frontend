@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { DefaultLayout } from 'layouts'
-import { Home } from 'app/blog-home/home'
 import { GetServerSideProps } from 'next'
-// import { recentPostsData } from 'data'
+import { MyAccount } from 'app/blig-my-account/MyAccount'
 import { recentPostsDataTypes } from 'lib/types'
-import { postService } from 'services'
 import { usePosts } from 'context/SearchProvider'
+import { postService } from 'services'
+import React from 'react'
 
-interface HomeDataTypes {
+interface ProfileTypes {
   data: recentPostsDataTypes[]
 }
 
-const App: React.FC<HomeDataTypes> = (props) => {
+const myAccount: React.FC<ProfileTypes> = (props) => {
   const { state, dispatch } = usePosts()
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const App: React.FC<HomeDataTypes> = (props) => {
 
   return (
     <DefaultLayout data={props.data}>
-      <Home data={state?.posts} />
+      <MyAccount />
     </DefaultLayout>
   )
 }
@@ -40,4 +40,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 }
 
-export default App
+export default myAccount

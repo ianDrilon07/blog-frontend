@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Tags, Card } from 'components'
+import { Tags, Card, BlankState } from 'components'
 import { trendingData } from 'data'
 import { userCurrentUser } from 'lib'
 import { recentPostsDataTypes } from 'lib/types'
@@ -7,7 +7,6 @@ import Link from 'next/link'
 
 //context
 import { usePosts } from 'context/SearchProvider'
-
 export const Home: React.FC<{ data: recentPostsDataTypes[] }> = ({
   data
 }): JSX.Element => {
@@ -44,9 +43,11 @@ export const Home: React.FC<{ data: recentPostsDataTypes[] }> = ({
       <div className='recent-post-container'>
         <section className='card-section'>
           <h2 className='recent-posts-title'>Recent Posts</h2>
-          {(filteredPosts || []).map((el) => (
-            <Card {...el} key={el.id} />
-          ))}
+          {state.posts.length > 0 ? (
+            (filteredPosts || []).map((el) => <Card {...el} key={el.id} />)
+          ) : (
+            <BlankState message="I'm sorry there are no post yet :(" />
+          )}
         </section>
 
         <section className='tags-section'>

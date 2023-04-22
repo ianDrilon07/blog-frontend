@@ -10,6 +10,12 @@ $screen-md-max: 1409px;
 $screen-lg-max: 1919px;
 $screen-xl-max: 5000px;
 
+@mixin pageContainer {
+  margin: 8rem auto;
+  overflow: hidden;
+  max-width: var(--container-lg);
+}
+
 // media devices
 @mixin xs {
   @media screen and (max-width: #{$screen-xs-max}) {
