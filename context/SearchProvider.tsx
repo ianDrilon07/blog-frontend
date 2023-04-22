@@ -60,7 +60,7 @@ export const PostsProvider: React.FC<{
       const filteredPosts = state.posts.filter(
         (post) =>
           post.title.toLowerCase().includes(query?.toLowerCase()) ||
-          post.author.toLowerCase().includes(query?.toLowerCase())
+          post.username.toLowerCase().includes(query?.toLowerCase())
       )
 
       dispatch({ type: 'SET_POSTS', payload: filteredPosts })
@@ -74,7 +74,7 @@ export const PostsProvider: React.FC<{
       dispatch({ type: 'SET_SEARCH_QUERY', payload: tags })
     } else {
       const filteredPosts = state.posts.filter((post) =>
-        post.tags.includes(tags?.toLowerCase())
+        post.tag.includes(tags?.toLowerCase())
       )
 
       dispatch({ type: 'SET_TAGS', payload: filteredPosts })
