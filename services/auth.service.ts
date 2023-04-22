@@ -1,17 +1,12 @@
-import axios, { AxiosInstance } from 'axios'
-import swal from 'sweetalert2'
+import { AxiosInstance } from 'axios'
 
 export class AuthService {
   protected readonly instance: AxiosInstance
-  public constructor(url: string) {
-    this.instance = axios.create({
-      baseURL: url,
-      timeout: 30000,
-      timeoutErrorMessage: 'Time out!'
-    })
+  public constructor(instance: AxiosInstance) {
+    this.instance = instance
   }
 
-  signIn = async (username: string, password: string) => {
+  public signIn = async (username: string, password: string) => {
     return this.instance
       .post('/login', {
         username,
@@ -20,6 +15,7 @@ export class AuthService {
       .then((res) => {
         return {
           user: {
+            id: res.data.user.id,
             username: res.data.user.username,
             email: res.data.user.email,
             created_at: res.data.user.created_at,
@@ -30,7 +26,7 @@ export class AuthService {
       })
   }
 
-  signUp = async (username: string, password: string, email: string) => {
+  public signUp = async (username: string, password: string, email: string) => {
     try {
       const response = await this.instance.post('/users', {
         username,

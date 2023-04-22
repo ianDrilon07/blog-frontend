@@ -1,20 +1,30 @@
-import React, { useEffect } from 'react'
-import { useForm } from 'react-hook-form'
-import { tagsSamples } from 'utils'
+import React from 'react'
 import { InputFiled, RichText, PostTags } from 'components'
-import { PostTypes } from 'lib/types'
+import { tagsSamples } from 'utils'
+import { useForm } from 'react-hook-form'
+import { editTypes } from 'lib/types'
 import { usePost } from 'lib'
 
-const CreatePost = (): JSX.Element => {
+interface EditTypes {
+  item: editTypes
+}
+
+const EditPost: React.FC<EditTypes> = ({ item }) => {
   const {
     handleSubmit,
     register,
     setValue,
     formState: { errors },
-    reset,
     watch
-  } = useForm<PostTypes>()
-  const { savePosts } = usePost()
+  } = useForm<editTypes>({
+    defaultValues: {
+      title: item.title,
+      bodyText: item.body,
+      tag: item.tag
+    }
+  })
+
+  const { updatePost } = usePost()
 
   const editorContent = watch('bodyText')
 
@@ -22,26 +32,14 @@ const CreatePost = (): JSX.Element => {
     setValue('bodyText', editorState)
   }
 
-  useEffect(() => {
-    register('bodyText', { required: 'Required Field' })
-  }, [register])
-
-  const onSubmit = (data: PostTypes) => {
-    const config = {
-      ...data,
-      status: 'POST'
-    }
-
-    //console.log(config)
-
-    savePosts(config.title, config.bodyText, config.tag, config.status)
-    reset()
+  const onSubmit = (data: editTypes) => {
+    updatePost(item.id, data.title, data.bodyText, data.tag, 'POST')
   }
 
   return (
-    <div className='post-container'>
+    <div className='edit-container'>
       <header>
-        <h1>Create Post</h1>
+        <h1>Edit Post</h1>
       </header>
       <form className='post-content' onSubmit={handleSubmit(onSubmit)}>
         <section className='post-form-input'>
@@ -84,7 +82,7 @@ const CreatePost = (): JSX.Element => {
             Save draft
           </button>
           <button type='submit' className='reset-button btn-primary-default'>
-            Post
+            Update
           </button>
         </section>
       </form>
@@ -92,4 +90,4 @@ const CreatePost = (): JSX.Element => {
   )
 }
 
-export { CreatePost }
+export { EditPost }

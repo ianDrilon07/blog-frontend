@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import type { NextPage } from 'next'
 import { PostsProvider } from 'context/SearchProvider'
 import 'styles/global.scss'
+import 'react-quill/dist/quill.snow.css'
 
 export type userType = 'ADMIN' | 'USER'
 

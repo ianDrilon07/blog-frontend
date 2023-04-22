@@ -61,7 +61,7 @@ export const SignIn: React.FC<SignInProps> = ({ type }) => {
         <button
           type='submit'
           name='submit'
-          className='reset-button button-primary'
+          className='reset-button btn-primary-default btn-xl'
         >
           Login
         </button>

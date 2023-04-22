@@ -1,0 +1,23 @@
+.ql-editor {
+  min-height: 500px;
+  padding: 10px 12px;
+  background-color: var(--neutral-100);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--neutral-200);
+
+  > p {
+    color: var(--neutral-800);
+  }
+
+  &:hover,
+  &:focus {
+    border: 3px solid var(--primary-500);
+    color: var(--white);
+  }
+}
+
+.ql-container.ql-snow {
+  border: none;
+}

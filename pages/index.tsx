@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { DefaultLayout } from 'layouts'
 import { Home } from 'app/blog-home/home'
 import { GetServerSideProps } from 'next'
-import { recentPostsData } from 'data'
+// import { recentPostsData } from 'data'
 import { recentPostsDataTypes } from 'lib/types'
+import { postService } from 'services'
 import { usePosts } from 'context/SearchProvider'
-
 interface HomeDataTypes {
   data: recentPostsDataTypes[]
 }
@@ -25,11 +25,16 @@ const App: React.FC<HomeDataTypes> = (props) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  // fetch api here
+  const blogs: recentPostsDataTypes[] = await postService.getBlogs()
+
+  const transform = Object.keys(blogs).map(
+    (key) => blogs[key as keyof typeof blogs]
+  )
+
   // ...
   return {
     props: {
-      data: recentPostsData
+      data: transform
     }
   }
 }
