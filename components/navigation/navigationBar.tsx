@@ -25,7 +25,7 @@ const NavigationBar: React.FC<{
   data: recentPostsDataTypes[] | undefined
 }> = ({ navlink = publicNavbar, data }) => {
   const [toggle, isToggle] = useState<boolean>(false)
-  const user = userCurrentUser()
+  const userData = userCurrentUser()
   const { logout } = useAccount()
 
   const { watch, register } = useForm()
@@ -76,7 +76,7 @@ const NavigationBar: React.FC<{
             />
           </div>
 
-          {user ? (
+          {userData ? (
             <header className='navbar-admin-content'>
               <Link href='/createPost' className='reset-button btn-add-blog'>
                 <Plus size='20' />
@@ -85,11 +85,11 @@ const NavigationBar: React.FC<{
               <div className='navbar-avatar' onClick={() => toggleDropdown()}>
                 <Avatar
                   size={35}
-                  name={user.username}
+                  name={userData.user.username}
                   variant='beam'
                   colors={['#EF746F']}
                 />
-                <h4 className='navbar-name'>{user.username}</h4>
+                <h4 className='navbar-name'>{userData.user.username}</h4>
                 {toggle ? (
                   <ChevronUp size='24' className='svg' />
                 ) : (
@@ -107,7 +107,7 @@ const NavigationBar: React.FC<{
                   className={
                     el.path === '/sign-in'
                       ? 'btn-link'
-                      : ' reset-button button-primary btn-signup btn-link'
+                      : ' reset-button btn-primary-default btn-signup btn-link'
                   }
                 >
                   {el.path === '/sign-in' ? 'Login' : 'Sign Up'}

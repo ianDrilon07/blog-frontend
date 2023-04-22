@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 import { UserType } from 'lib/types'
 import swal from 'sweetalert2'
 import { authService } from 'services'
-import { redirect, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 interface useAccountsType {
   validateStrongPassword: (password: string) => boolean | string
@@ -16,7 +16,7 @@ export const useAccount = (): useAccountsType => {
 
   const login = async (username: string, password: string) => {
     try {
-      const { user } = await authService.signIn(username, password)
+      const user = await authService.signIn(username, password)
 
       if (user) {
         swal

@@ -90,7 +90,10 @@ export const SignUp = (): JSX.Element => {
       </p>
 
       <div className='btn-content'>
-        <button type='submit' className='reset-button button-primary'>
+        <button
+          type='submit'
+          className='reset-button btn-primary-default btn-xl'
+        >
           Sign up
         </button>
       </div>

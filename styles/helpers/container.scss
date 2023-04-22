@@ -43,7 +43,13 @@
 }
 
 .post-container {
-  margin: 10rem auto;
+  margin: 8rem auto;
+  overflow: hidden;
+  max-width: var(--container-lg);
+}
+
+.edit-container {
+  margin: 8rem auto;
   overflow: hidden;
   max-width: var(--container-lg);
 }

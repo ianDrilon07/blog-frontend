@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
-import { Tags, Card } from './components'
+import { Tags, Card } from 'components'
 import { trendingData } from 'data'
 import { userCurrentUser } from 'lib'
 import { recentPostsDataTypes } from 'lib/types'
+import Link from 'next/link'
 
 //context
 import { usePosts } from 'context/SearchProvider'
+
 export const Home: React.FC<{ data: recentPostsDataTypes[] }> = ({
   data
 }): JSX.Element => {
@@ -50,9 +52,11 @@ export const Home: React.FC<{ data: recentPostsDataTypes[] }> = ({
         <section className='tags-section'>
           {user && (
             <div>
-              <button className='reset-button button-primary btn-xl'>
-                Create Post
-              </button>
+              <Link href='/createPost'>
+                <button className='reset-button btn-primary-default btn-xl'>
+                  Create Post
+                </button>
+              </Link>
             </div>
           )}
           <div className='divider-lg' />

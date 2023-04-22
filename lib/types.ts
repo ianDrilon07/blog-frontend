@@ -11,22 +11,50 @@ export type trendingDataType = {
   title: string
 }
 
+export type recentPostsDataKey = {
+  [key: string]: number | string[] | string | object | undefined
+}
+
 export type recentPostsDataTypes = {
   id: number
-  votes: number
-  comments: number
-  author: string
-  tags: Array<string>
+  comments?: number
+  username: string
+  user_id: number
+  tag: string[]
   title: string
-  image: string
+  status: string
   created_date: string
 }
 
 export type UserType = {
-  id: number
-  username: string
-  email: string
-  created_at: string
-  updated_at: string
+  user: {
+    id: number
+    username: string
+    email: string
+    created_at: string
+    updated_at: string
+  }
   token: string
+}
+
+export type formatTypes = {
+  className?: string
+  options?: Array<string> | undefined
+  value?: string
+}
+
+export type PostTypes = {
+  title: string
+  bodyText: string
+  tag: string[]
+  update_at?: string
+  created_at?: string
+  blog?: null
+  user_id?: number
+  id: number
+  status?: string
+}
+
+export interface editTypes extends PostTypes {
+  body: string
 }

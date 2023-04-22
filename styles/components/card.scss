@@ -127,9 +127,13 @@
         }
       }
 
-      > .blog-share {
+      > .blog-svg {
         svg {
           stroke: var(--neutral-300);
+
+          &:hover {
+            stroke: var(--primary-500);
+          }
         }
       }
     }
