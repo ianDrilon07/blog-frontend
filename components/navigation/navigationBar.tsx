@@ -2,6 +2,7 @@ import React, { KeyboardEvent, useState } from 'react'
 import { User, LogOut } from 'react-feather'
 import { publicNavbar } from 'data'
 import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 //components
@@ -27,6 +28,7 @@ const NavigationBar: React.FC<{
   const [toggle, isToggle] = useState<boolean>(false)
   const userData = userCurrentUser()
   const { logout } = useAccount()
+  const router = useRouter()
 
   const { watch, register } = useForm()
   const { handleSearch } = usePosts()
@@ -47,7 +49,7 @@ const NavigationBar: React.FC<{
       icon: <User size='20' />,
       title: 'My Profile',
       action: () => {
-        alert('working')
+        router.push(`/admin/profile/${userData?.user.id}`)
       }
     },
     {
