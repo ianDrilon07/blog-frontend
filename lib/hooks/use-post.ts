@@ -1,5 +1,6 @@
 import swal from 'sweetalert2'
 import { postService } from 'services'
+import { useRouter } from 'next/router'
 
 interface usePostsTypes {
   savePosts: (
@@ -18,6 +19,8 @@ interface usePostsTypes {
 }
 
 export const usePost = (): usePostsTypes => {
+  const router = useRouter()
+
   const savePosts = async (
     title: string,
     body: string,
@@ -30,11 +33,17 @@ export const usePost = (): usePostsTypes => {
         (await postService.saveBlog(title, body, tag, status))
 
       if (posts) {
-        swal.fire({
-          title: 'Success',
-          text: 'Successfully added post',
-          icon: 'success'
-        })
+        swal
+          .fire({
+            title: 'Success',
+            text: 'Successfully added post',
+            icon: 'success'
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              router.push('/')
+            }
+          })
       }
     } catch (error) {
       swal.fire({

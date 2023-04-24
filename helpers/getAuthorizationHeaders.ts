@@ -4,8 +4,7 @@ export const getAuthorizationHeader = () => {
   const currentUser = Cookies.get('currentUser')
 
   return {
-    Authorization: `Bearer ${
-      (currentUser && JSON.parse(currentUser || '')?.token) || ''
-    }`
+    Authorization:
+      currentUser && `Bearer ${JSON.parse(currentUser || '')?.token || ''}`
   }
 }
