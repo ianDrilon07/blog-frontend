@@ -5,8 +5,8 @@ const BlankState: React.FC<{ message: string }> = (props): JSX.Element => {
   return (
     <>
       <main className='blankstate-container'>
-        {[1, 2, 3, 5, 6].map(() => (
-          <div className='empty-box' />
+        {[1, 2, 3, 5, 6].map((el) => (
+          <div className='empty-box' key={el} />
         ))}
 
         <div className='error-wrapper'>

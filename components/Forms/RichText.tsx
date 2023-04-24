@@ -5,13 +5,15 @@ import { reactQuillFormats } from 'utils/ToolbarOptions'
 interface RichTextTypes {
   editorContent: string
   handleRichText: (editorContent: string) => void
-  title: string
+  title?: string
+  placeholder?: string
 }
 
 const RichText: React.FC<RichTextTypes> = ({
   editorContent,
   handleRichText,
-  title
+  title,
+  placeholder
 }) => {
   const ReactQuill = useMemo(
     () => dynamic(() => import('react-quill'), { ssr: false }),
@@ -24,6 +26,7 @@ const RichText: React.FC<RichTextTypes> = ({
 
       <ReactQuill
         theme='bubble'
+        placeholder={placeholder}
         value={editorContent}
         onChange={handleRichText}
         modules={{ toolbar: false }}

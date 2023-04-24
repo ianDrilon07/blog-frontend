@@ -16,14 +16,14 @@ const CreatePost = (): JSX.Element => {
   } = useForm<PostTypes>()
   const { savePosts } = usePost()
 
-  const editorContent = watch('bodyText')
+  const editorContent = watch('body')
 
   const handleRichText = (editorState: string) => {
-    setValue('bodyText', editorState)
+    setValue('body', editorState)
   }
 
   useEffect(() => {
-    register('bodyText', { required: 'Required Field' })
+    register('body', { required: 'Required Field' })
   }, [register])
 
   const onSubmit = (data: PostTypes) => {
@@ -34,7 +34,7 @@ const CreatePost = (): JSX.Element => {
 
     //console.log(config)
 
-    savePosts(config.title, config.bodyText, config.tag, config.status)
+    savePosts(config.title, config.body, config.tag, config.status)
     reset()
   }
 

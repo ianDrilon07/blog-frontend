@@ -1,12 +1,11 @@
 .btn-primary-default {
   cursor: pointer;
   height: 40px;
-  padding: 10px 34px;
+  padding: 10px 24px;
   border-radius: var(--border-radius);
   background: var(--primary-500);
   font-size: 16px;
   color: var(--white);
-  font-weight: 600;
 
   &:hover {
     background: var(--primary-800);

@@ -12,7 +12,7 @@ interface ProfileTypes {
 }
 
 const myAccount: React.FC<ProfileTypes> = (props) => {
-  const { state, dispatch } = usePosts()
+  const { dispatch } = usePosts()
 
   useEffect(() => {
     dispatch({ type: 'SET_POSTS', payload: props.data })

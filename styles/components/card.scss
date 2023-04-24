@@ -92,11 +92,6 @@
       flex-direction: column;
       gap: 0.4rem;
 
-      svg {
-        stroke: var(--neutral-300);
-        cursor: pointer;
-      }
-
       > .vote-count {
         font-size: 1.5rem;
         color: var(--neutral-800);
@@ -152,12 +147,6 @@
       margin-bottom: 0.5rem;
     }
 
-    > .card-tag {
-      color: var(--neutral-300);
-      font-size: 1.25rem;
-      margin-right: 8px;
-    }
-
     > .card-body {
       > .card-img {
         border-radius: var(--border-radius);
@@ -166,5 +155,20 @@
         object-fit: cover;
       }
     }
+  }
+}
+
+.card-tag {
+  color: var(--neutral-300);
+  font-size: 1.25rem;
+  margin-right: 8px;
+}
+
+.svg-color {
+  stroke: var(--neutral-300);
+  cursor: pointer;
+
+  &:hover {
+    stroke: var(--primary-500);
   }
 }

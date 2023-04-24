@@ -17,12 +17,12 @@ const Card: React.FC<recentPostsDataTypes> = (props) => {
   const { id, username, tag, title, user_id } = props
 
   return (
-    <Link href={`/admin/${id}`} className='blog-card' key={id}>
+    <Link href={`/admin/view/${id}`} className='blog-card' key={id}>
       <aside className='left-card'>
         <div className='blog-votes'>
-          <ArrowUp />
+          <ArrowUp className='svg-color' />
           <span className='vote-count'>0</span>
-          <ArrowDown />
+          <ArrowDown className='svg-color' />
         </div>
 
         <div className='blog-comment-share'>
@@ -52,7 +52,7 @@ const Card: React.FC<recentPostsDataTypes> = (props) => {
           {username && (
             <Avatar
               size={40}
-              name='username'
+              name={username}
               variant='beam'
               colors={['#EF746F']}
             />

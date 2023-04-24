@@ -53,7 +53,7 @@ export const SignIn: React.FC<SignInProps> = ({ type }) => {
         />
       </div>
 
-      <Link href='#' className='form-forgot-link'>
+      <Link href='/password-reset' className='form-forgot-link'>
         Forgot your password?
       </Link>
 

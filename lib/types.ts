@@ -24,6 +24,7 @@ export type recentPostsDataTypes = {
   title: string
   status: string
   created_date: string
+  updated_date: string
 }
 
 export type UserType = {
@@ -45,9 +46,10 @@ export type formatTypes = {
 
 export type PostTypes = {
   title: string
-  bodyText: string
+  body: string
   tag: string[]
-  update_at?: string
+  username?: string
+  updated_at?: string
   created_at?: string
   blog?: null
   user_id?: number

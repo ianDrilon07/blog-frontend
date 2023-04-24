@@ -104,5 +104,16 @@
   > .btn-content {
     margin-top: 30px;
     width: 100%;
+
+    > .form-forgot-password {
+      margin-top: 18px;
+
+      text-align: center;
+
+      > .forgot-password-link {
+        text-decoration: underline;
+        color: var(--primary-500);
+      }
+    }
   }
 }
