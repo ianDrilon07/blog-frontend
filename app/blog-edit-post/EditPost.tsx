@@ -2,11 +2,11 @@ import React from 'react'
 import { InputFiled, RichText, PostTags } from 'components'
 import { tagsSamples } from 'utils'
 import { useForm } from 'react-hook-form'
-import { editTypes } from 'lib/types'
+import { PostTypes } from 'lib/types'
 import { usePost } from 'lib'
 
 interface EditTypes {
-  item: editTypes
+  item: PostTypes
 }
 
 const EditPost: React.FC<EditTypes> = ({ item }) => {
@@ -16,24 +16,24 @@ const EditPost: React.FC<EditTypes> = ({ item }) => {
     setValue,
     formState: { errors },
     watch
-  } = useForm<editTypes>({
+  } = useForm<PostTypes>({
     defaultValues: {
       title: item.title,
-      bodyText: item.body,
+      body: item.body,
       tag: item.tag
     }
   })
 
   const { updatePost } = usePost()
 
-  const editorContent = watch('bodyText')
+  const editorContent = watch('body')
 
   const handleRichText = (editorState: string) => {
-    setValue('bodyText', editorState)
+    setValue('body', editorState)
   }
 
-  const onSubmit = (data: editTypes) => {
-    updatePost(item.id, data.title, data.bodyText, data.tag, 'POST')
+  const onSubmit = (data: PostTypes) => {
+    updatePost(item.id, data.title, data.body, data.tag, 'POST')
   }
 
   return (

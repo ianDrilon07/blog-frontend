@@ -53,10 +53,6 @@ export type PostTypes = {
   created_at?: string
   blog?: null
   user_id?: number
-  id?: number
+  id: number
   status?: string
-}
-
-export interface editTypes extends PostTypes {
-  body: string
 }

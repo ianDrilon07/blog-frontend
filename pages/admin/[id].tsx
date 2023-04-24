@@ -4,13 +4,14 @@ import { EditPost } from 'app/blog-edit-post/EditPost'
 import { GetServerSideProps } from 'next'
 import { postService } from 'services'
 import { ParsedUrlQuery } from 'querystring'
+import { PostTypes } from 'lib/types'
 
 interface IParams extends ParsedUrlQuery {
   id: string
 }
 
 interface EditPostTypes {
-  data: object
+  data: PostTypes
 }
 
 const EditPosts: React.FC<EditPostTypes> = ({ data }) => {
